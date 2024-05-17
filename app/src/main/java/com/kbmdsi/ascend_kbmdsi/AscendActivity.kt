@@ -16,6 +16,13 @@ import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class AscendActivity: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -26,6 +33,7 @@ class AscendActivity: AppCompatActivity() {
         var count       = 0
         var editText    = findViewById<EditText>(R.id.editText)
         var increment   = findViewById<Button>(R.id.button)
+        var countdown   = findViewById<Button>(R.id.button2)
         var display     = findViewById<TextView>(R.id.textView)
         var pickImage   = findViewById<CardView>(R.id.pickImage)
         var image       = findViewById<ImageView>(R.id.imageView)
@@ -68,18 +76,43 @@ class AscendActivity: AppCompatActivity() {
             increment.setBackgroundColor(Color.parseColor("#61008D"))
             pickImage.setCardBackgroundColor(Color.parseColor("#61008D"))
             back.setCardBackgroundColor(Color.parseColor("#61008D"))
+            countdown.setBackgroundColor(Color.parseColor("#61008D"))
         }
 
         greenCard.setOnClickListener{
             increment.setBackgroundColor(Color.parseColor("#4CAF50"))
             pickImage.setCardBackgroundColor(Color.parseColor("#4CAF50"))
             back.setCardBackgroundColor(Color.parseColor("#4CAF50"))
+            countdown.setBackgroundColor(Color.parseColor("#4CAF50"))
         }
 
         redCard.setOnClickListener {
             increment.setBackgroundColor(Color.parseColor("#E91E63"))
             pickImage.setCardBackgroundColor(Color.parseColor("#E91E63"))
             back.setCardBackgroundColor(Color.parseColor("#E91E63"))
+            countdown.setBackgroundColor(Color.parseColor("#E91E63"))
+        }
+
+        countdown.setOnClickListener {
+            lifecycleScope.launch {
+                countdown(count).collect{
+                    display.text = it.toString()
+                }
+                if(display.text == "0"){
+                    count = 0
+                    Toast.makeText(applicationContext, "Countdown Complete", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun countdown(start: Int): Flow<Int> {
+        return flow {
+            for (i in start downTo 0) {
+                emit(i)
+                delay(1000)
+            }
+            return@flow
         }
     }
 }
