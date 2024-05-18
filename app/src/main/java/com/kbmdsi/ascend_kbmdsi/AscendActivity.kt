@@ -41,6 +41,7 @@ class AscendActivity: AppCompatActivity() {
         var purpleCard  = findViewById<CardView>(R.id.materialCardView)
         var greenCard   = findViewById<CardView>(R.id.materialCardView6)
         var redCard     = findViewById<CardView>(R.id.materialCardView5)
+        var hideButton  = findViewById<CardView>(R.id.hideImage)
 
         var src         = listOf(
             R.drawable.ascendimage,
@@ -102,6 +103,14 @@ class AscendActivity: AppCompatActivity() {
                     count = 0
                     Toast.makeText(applicationContext, "Countdown Complete", Toast.LENGTH_SHORT).show()
                 }
+            }
+        }
+
+        hideButton.setOnClickListener {
+            if(image.visibility == ImageView.INVISIBLE){
+                image.visibility = ImageView.VISIBLE
+            } else {
+                image.visibility = ImageView.INVISIBLE
             }
         }
     }
