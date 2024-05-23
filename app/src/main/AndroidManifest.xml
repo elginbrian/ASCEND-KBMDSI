@@ -16,11 +16,11 @@
         android:theme="@style/Theme.ASCENDKBMDSI"
         tools:targetApi="31">
 
-        <activity android:name=".AscendActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".AddViewActivity"/>
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".AddNoteActivity"/>
+        <activity android:name=".example.AscendActivity"/>
+        <activity android:name=".example.LoginActivity"/>
+        <activity android:name=".example.AddViewActivity"/>
+        <activity android:name=".presentation.HomeActivity"/>
+        <activity android:name=".presentation.AddNoteActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -33,3 +33,4 @@
     </application>
 
 </manifest>
+

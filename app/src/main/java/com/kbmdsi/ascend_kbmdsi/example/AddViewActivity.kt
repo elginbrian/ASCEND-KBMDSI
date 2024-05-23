@@ -1,12 +1,12 @@
-package com.kbmdsi.ascend_kbmdsi
+package com.kbmdsi.ascend_kbmdsi.example
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.kbmdsi.ascend_kbmdsi.R
 
 class AddViewActivity: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

@@ -1,28 +1,22 @@
-package com.kbmdsi.ascend_kbmdsi
+package com.kbmdsi.ascend_kbmdsi.example
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.coroutineScope
+import com.kbmdsi.ascend_kbmdsi.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class AscendActivity: AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi
+package com.kbmdsi.ascend_kbmdsi.example
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.kbmdsi.ascend_kbmdsi.R
 
 class LoginActivity(): AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
