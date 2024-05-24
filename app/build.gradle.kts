@@ -51,4 +51,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.code.gson:gson:2.9.0")
 }

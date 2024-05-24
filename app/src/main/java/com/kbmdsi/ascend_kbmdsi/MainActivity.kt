@@ -8,7 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.kbmdsi.ascend_kbmdsi.data.remote.MovieAPI
+import com.kbmdsi.ascend_kbmdsi.data.remote.MovieRepository
 import com.kbmdsi.ascend_kbmdsi.presentation.HomeActivity
+import com.kbmdsi.ascend_kbmdsi.presentation.MovieViewModel
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -23,6 +26,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val MovieAPI = MovieAPI(this)
+        val movieRepository = MovieRepository(MovieAPI)
+        val viewModel = MovieViewModel(movieRepository)
+
+        viewModel.getMovies {
+
+        }
         Intent(this, HomeActivity::class.java).also {
             startActivity(it)
         }

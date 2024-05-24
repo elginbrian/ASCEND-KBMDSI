@@ -3,7 +3,6 @@ package com.kbmdsi.ascend_kbmdsi.presentation
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.widget.EditText
 import android.widget.ImageView
@@ -12,9 +11,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.kbmdsi.ascend_kbmdsi.R
-import com.kbmdsi.ascend_kbmdsi.data.DBHelper
-import com.kbmdsi.ascend_kbmdsi.data.NoteModel
-import com.kbmdsi.ascend_kbmdsi.data.NoteRepository
+import com.kbmdsi.ascend_kbmdsi.data.local.DBHelper
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteRepository
 import java.time.LocalDateTime
 
 class NoteDetailActivity: AppCompatActivity() {
@@ -61,13 +60,15 @@ class NoteDetailActivity: AppCompatActivity() {
         }
 
         check.setOnClickListener {
-            viewModel.updateNote(NoteModel(
+            viewModel.updateNote(
+                NoteModel(
                 id = intent.getStringExtra("note_id")!!,
                 title = title.text.toString(),
                 content = content.text.toString(),
                 priority = priority.selectedItemPosition + 1,
                 date = LocalDateTime.now().toString()
-            )){
+            )
+            ){
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
 
                 Intent(this, HomeActivity::class.java).also{ intent ->

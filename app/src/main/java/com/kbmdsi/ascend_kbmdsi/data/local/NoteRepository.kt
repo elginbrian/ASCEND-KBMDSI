@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.data
+package com.kbmdsi.ascend_kbmdsi.data.local
 
 import android.util.Log
 import kotlinx.coroutines.flow.Flow

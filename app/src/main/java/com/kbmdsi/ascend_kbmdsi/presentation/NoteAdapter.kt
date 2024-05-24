@@ -7,15 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.kbmdsi.ascend_kbmdsi.R
-import com.kbmdsi.ascend_kbmdsi.data.NoteModel
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
 
-class Adapter(
+class NoteAdapter(
     private val notes: List<NoteModel>,
     private val context: Context
-): RecyclerView.Adapter<Adapter.ViewHolder>() {
+): RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.textView5)
@@ -24,7 +23,7 @@ class Adapter(
         val priority: TextView = itemView.findViewById(R.id.textView7)
     }
 
-    override fun onBindViewHolder(holder: Adapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NoteAdapter.ViewHolder, position: Int) {
         val note = notes[position]
 
         holder.title.text = note.title

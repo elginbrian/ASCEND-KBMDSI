@@ -11,9 +11,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kbmdsi.ascend_kbmdsi.R
-import com.kbmdsi.ascend_kbmdsi.data.DBHelper
-import com.kbmdsi.ascend_kbmdsi.data.NoteModel
-import com.kbmdsi.ascend_kbmdsi.data.NoteRepository
+import com.kbmdsi.ascend_kbmdsi.data.local.DBHelper
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteRepository
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -50,7 +50,8 @@ class AddNoteActivity: AppCompatActivity() {
         }
 
         check.setOnClickListener {
-            viewModel.addNote(NoteModel(
+            viewModel.addNote(
+                NoteModel(
                 id = UUID.randomUUID().toString(),
                 title = findViewById<EditText>(R.id.etTitle).text.toString(),
                 content = findViewById<EditText>(R.id.etDescription).text.toString(),
@@ -60,7 +61,8 @@ class AddNoteActivity: AppCompatActivity() {
                     "Low Priority" -> 3
                     else -> 0 },
                 date = LocalDateTime.now().toString()
-            )){
+            )
+            ){
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
 
                 Intent(this, HomeActivity::class.java).also{ intent ->

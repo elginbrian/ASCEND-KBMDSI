@@ -2,10 +2,9 @@ package com.kbmdsi.ascend_kbmdsi.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.kbmdsi.ascend_kbmdsi.data.NoteModel
-import com.kbmdsi.ascend_kbmdsi.data.NoteRepository
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

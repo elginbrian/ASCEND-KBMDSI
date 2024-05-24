@@ -10,12 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.kbmdsi.ascend_kbmdsi.R
-import com.kbmdsi.ascend_kbmdsi.data.DBHelper
-import com.kbmdsi.ascend_kbmdsi.data.NoteModel
-import com.kbmdsi.ascend_kbmdsi.data.NoteRepository
-import java.time.LocalDateTime
-import java.util.UUID
+import com.kbmdsi.ascend_kbmdsi.data.local.DBHelper
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
+import com.kbmdsi.ascend_kbmdsi.data.local.NoteRepository
 
 
 class HomeActivity(): AppCompatActivity() {
@@ -34,7 +31,7 @@ class HomeActivity(): AppCompatActivity() {
             Log.d("HomeActivity", "onCreate: $notes")
 
             val recyclerView = findViewById<RecyclerView>(com.kbmdsi.ascend_kbmdsi.R.id.recyclerView)
-            val adapter = Adapter(notes, this)
+            val adapter = NoteAdapter(notes, this)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.addItemDecoration(TopAndBottomSpacerItemDecoration(32, 72))
