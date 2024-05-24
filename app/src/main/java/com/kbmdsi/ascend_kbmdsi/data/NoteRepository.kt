@@ -53,4 +53,20 @@ class NoteRepository(
             }
         }
     }
+
+    suspend fun updateNote(note: NoteModel): Flow<String> {
+        return flow {
+            try {
+                val result = db.updateNote(note)
+                Log.d("NoteRepository", result)
+                emit(result)
+                return@flow
+
+            } catch (e: Exception){
+                emit(e.message.toString())
+                Log.d("NoteRepository", e.message.toString())
+                return@flow
+            }
+        }
+    }
 }

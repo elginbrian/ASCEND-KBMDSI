@@ -30,7 +30,7 @@ class HomeActivity(): AppCompatActivity() {
 
         var notes: MutableList<NoteModel>
         viewModel.getNotes {
-            notes = it.toMutableList()
+            notes = it.sortedByDescending { note -> note.date }.toMutableList()
             Log.d("HomeActivity", "onCreate: $notes")
 
             val recyclerView = findViewById<RecyclerView>(com.kbmdsi.ascend_kbmdsi.R.id.recyclerView)
@@ -46,6 +46,7 @@ class HomeActivity(): AppCompatActivity() {
             Intent(this, AddNoteActivity::class.java).also {
                 startActivity(it)
             }
+            finish()
         }
     }
 }

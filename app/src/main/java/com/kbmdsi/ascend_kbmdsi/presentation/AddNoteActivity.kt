@@ -1,12 +1,14 @@
 package com.kbmdsi.ascend_kbmdsi.presentation
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kbmdsi.ascend_kbmdsi.R
 import com.kbmdsi.ascend_kbmdsi.data.DBHelper
@@ -31,6 +33,9 @@ class AddNoteActivity: AppCompatActivity() {
         val viewModel = NoteViewModel(noteRepository)
 
         back.setOnClickListener {
+            Intent(this, HomeActivity::class.java).also{
+                startActivity(it)
+            }
             finish()
         }
 
@@ -55,10 +60,13 @@ class AddNoteActivity: AppCompatActivity() {
                     "Low Priority" -> 3
                     else -> 0 },
                 date = LocalDateTime.now().toString()
-            ))
-            finish()
-            viewModel.getNotes {
+            )){
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
 
+                Intent(this, HomeActivity::class.java).also{ intent ->
+                    startActivity(intent)
+                }
+                finish()
             }
         }
     }

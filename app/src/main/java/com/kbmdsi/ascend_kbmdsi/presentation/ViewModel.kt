@@ -34,18 +34,35 @@ class NoteViewModel(
         }
     }
 
-    fun addNote(note: NoteModel){
+    fun addNote(
+        note: NoteModel,
+        onFinished: (String) -> Unit
+    ){
         viewModelScope.launch {
             repository.addNote(note).collect{
-
+                onFinished(it)
             }
         }
     }
 
-    fun deleteNote(id: String){
+    fun deleteNote(
+        id: String,
+        onFinished: (String) -> Unit
+    ){
         viewModelScope.launch {
             repository.deleteNote(id).collect{
+                onFinished(it)
+            }
+        }
+    }
 
+    fun updateNote(
+        note: NoteModel,
+        onFinished: (String) -> Unit
+    ){
+        viewModelScope.launch {
+            repository.updateNote(note).collect{
+                onFinished(it)
             }
         }
     }

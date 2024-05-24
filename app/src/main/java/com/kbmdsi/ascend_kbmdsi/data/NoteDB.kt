@@ -67,8 +67,21 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     fun deleteNote(id: String): String{
         val db = this.writableDatabase
-        db.delete("notes", "id = ?", arrayOf(id.toString()))
+        db.delete("notes", "id = ?", arrayOf(id))
         db.close()
         return "Note deleted successfully"
+    }
+
+    fun updateNote(note: NoteModel): String{
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put("title", note.title)
+            put("priority", note.priority)
+            put("content", note.content)
+            put("date", note.date)
+        }
+        db.update("notes", values, "id = ?", arrayOf(note.id))
+        db.close()
+        return "Note updated successfully"
     }
 }
