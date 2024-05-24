@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.presentation
+package com.kbmdsi.ascend_kbmdsi.presentation.note_screen
 
 import android.annotation.SuppressLint
 import android.content.Intent

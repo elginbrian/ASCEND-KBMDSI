@@ -6,8 +6,11 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import org.json.JSONObject
+import java.util.concurrent.ExecutionException
 
 class MovieAPI(context: Context) {
     private val requestQueue: RequestQueue = Volley.newRequestQueue(context)

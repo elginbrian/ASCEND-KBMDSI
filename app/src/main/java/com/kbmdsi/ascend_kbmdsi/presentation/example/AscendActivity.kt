@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.example
+package com.kbmdsi.ascend_kbmdsi.presentation.example
 
 import android.annotation.SuppressLint
 import android.graphics.Color

@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.presentation
+package com.kbmdsi.ascend_kbmdsi.presentation.note_screen
 
 import android.content.Context
 import android.content.Intent
@@ -23,7 +23,7 @@ class NoteAdapter(
         val priority: TextView = itemView.findViewById(R.id.textView7)
     }
 
-    override fun onBindViewHolder(holder: NoteAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notes[position]
 
         holder.title.text = note.title

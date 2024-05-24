@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.presentation
+package com.kbmdsi.ascend_kbmdsi.presentation.note_screen
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

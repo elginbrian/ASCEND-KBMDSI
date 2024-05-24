@@ -16,11 +16,13 @@
         android:theme="@style/Theme.ASCENDKBMDSI"
         tools:targetApi="31">
 
-        <activity android:name=".example.AscendActivity"/>
+        <activity android:name=".presentation.example.AscendActivity"/>
 
-        <activity android:name=".presentation.HomeActivity"/>
-        <activity android:name=".presentation.AddNoteActivity"/>
-        <activity android:name=".presentation.NoteDetailActivity"/>
+        <activity android:name=".presentation.note_screen.HomeActivity"/>
+        <activity android:name=".presentation.note_screen.AddNoteActivity"/>
+        <activity android:name=".presentation.note_screen.NoteDetailActivity"/>
+
+        <activity android:name=".presentation.movie_screen.MovieActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

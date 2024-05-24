@@ -1,4 +1,4 @@
-package com.kbmdsi.ascend_kbmdsi.presentation
+package com.kbmdsi.ascend_kbmdsi.presentation.note_screen
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,13 +6,16 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.kbmdsi.ascend_kbmdsi.R
 import com.kbmdsi.ascend_kbmdsi.data.local.DBHelper
 import com.kbmdsi.ascend_kbmdsi.data.local.NoteModel
 import com.kbmdsi.ascend_kbmdsi.data.local.NoteRepository
+import com.kbmdsi.ascend_kbmdsi.presentation.movie_screen.MovieActivity
 
 
 class HomeActivity(): AppCompatActivity() {
@@ -44,6 +47,13 @@ class HomeActivity(): AppCompatActivity() {
                 startActivity(it)
             }
             finish()
+        }
+
+        val movie = findViewById<ImageView>(R.id.imageView2)
+        movie.setOnClickListener {
+            Intent(this, MovieActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 }

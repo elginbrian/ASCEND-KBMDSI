@@ -3,15 +3,13 @@ package com.kbmdsi.ascend_kbmdsi
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kbmdsi.ascend_kbmdsi.data.remote.MovieAPI
-import com.kbmdsi.ascend_kbmdsi.data.remote.MovieRepository
-import com.kbmdsi.ascend_kbmdsi.presentation.HomeActivity
-import com.kbmdsi.ascend_kbmdsi.presentation.MovieViewModel
+import com.kbmdsi.ascend_kbmdsi.presentation.note_screen.HomeActivity
+import com.kbmdsi.ascend_kbmdsi.presentation.movie_screen.MovieViewModel
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -26,15 +24,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val MovieAPI = MovieAPI(this)
-        val movieRepository = MovieRepository(MovieAPI)
-        val viewModel = MovieViewModel(movieRepository)
-
-        viewModel.getMovies {
-
-        }
         Intent(this, HomeActivity::class.java).also {
             startActivity(it)
         }
+        finish()
     }
 }
