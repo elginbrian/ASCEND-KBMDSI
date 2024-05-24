@@ -17,14 +17,19 @@ class NoteViewModel(
     val note = _noteState.asStateFlow()
 
     init {
-        getNotes()
+        getNotes(){
+
+        }
     }
 
-    fun getNotes(){
+    fun getNotes(
+        onFinished: (List<NoteModel>) -> Unit
+    ){
         viewModelScope.launch {
             repository.getNotes().collect{
                 _noteState.value = it
                 Log.d("ViewModel", it.toString())
+                onFinished(it)
             }
         }
     }

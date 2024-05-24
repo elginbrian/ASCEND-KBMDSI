@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
         private const val DATABASE_NAME = "notes.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -16,6 +16,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             CREATE TABLE notes (
                 id TEXT PRIMARY KEY,
                 title TEXT,
+                priority INTEGER,
                 content TEXT,
                 date TEXT
             )
@@ -37,9 +38,10 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             do {
                 val id = cursor.getString(cursor.getColumnIndexOrThrow("id"))
                 val title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
+                val priority = cursor.getInt(cursor.getColumnIndexOrThrow("priority"))
                 val content = cursor.getString(cursor.getColumnIndexOrThrow("content"))
                 val date = cursor.getString(cursor.getColumnIndexOrThrow("date"))
-                val note = NoteModel(id, title, content, date)
+                val note = NoteModel(id, title, priority, content, date)
                 notes.add(note)
             } while (cursor.moveToNext())
         }
@@ -53,6 +55,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val values = ContentValues().apply {
             put("id", note.id)
             put("title", note.title)
+            put("priority", note.priority)
             put("content", note.content)
             put("date", note.date)
         }
