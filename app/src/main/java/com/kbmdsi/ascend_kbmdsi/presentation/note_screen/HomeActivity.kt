@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,10 @@ class HomeActivity(): AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.kbmdsi.ascend_kbmdsi.R.layout.activity_home)
+
+        if(!intent.getStringExtra("message").isNullOrEmpty()){
+            Toast.makeText(this, intent.getStringExtra("message"), Toast.LENGTH_SHORT).show()
+        }
 
         val dbHelper = DBHelper(this)
         val noteRepository = NoteRepository(dbHelper)
